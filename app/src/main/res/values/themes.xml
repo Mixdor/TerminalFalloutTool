@@ -1,0 +1,63 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.HackTerminalFallout.verde" parent="Theme.Material3.Dark.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/verde_chillon</item>
+        <item name="colorPrimaryVariant">@color/verde_chillon</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_200</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorOnSurfaceVariant">@color/verde_chillon</item>
+        <!-- Status bar color. ?attr/-->
+        <item name="android:statusBarColor">@color/verde_status</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Theme.HackTerminalFallout.azul" parent="Theme.Material3.Dark.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/azul_chillon</item>
+        <item name="colorPrimaryVariant">@color/azul_chillon</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_200</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorOnSurfaceVariant">@color/azul_chillon</item>
+        <!-- Status bar color. ?attr/-->
+        <item name="android:statusBarColor">@color/azul_status</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Theme.HackTerminalFallout.naranja" parent="Theme.Material3.Dark.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/naranja_chillon</item>
+        <item name="colorPrimaryVariant">@color/naranja_chillon</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_200</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorOnSurfaceVariant">@color/naranja_chillon</item>
+        <!-- Status bar color. ?attr/-->
+        <item name="android:statusBarColor">@color/naranja_status</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Theme.HackTerminalFallout.morado" parent="Theme.Material3.Dark.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/morado_chillon</item>
+        <item name="colorPrimaryVariant">@color/morado_chillon</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_200</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorOnSurfaceVariant">@color/morado_chillon</item>
+        <!-- Status bar color. ?attr/-->
+        <item name="android:statusBarColor">@color/morado_status</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+</resources>

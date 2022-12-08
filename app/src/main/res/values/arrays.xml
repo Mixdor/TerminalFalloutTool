@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="simple_items">
+        <item>Muy Facil / Principiante</item>
+        <item>Facil / Avanzado</item>
+        <item>Medio / Experto</item>
+        <item>Difícil / Maestro</item>
+        <item>Muy difícil</item>
+    </string-array>
+</resources>
