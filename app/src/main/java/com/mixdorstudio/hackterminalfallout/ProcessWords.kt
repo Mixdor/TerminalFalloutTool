@@ -11,16 +11,19 @@ class ProcessWords() {
 
     fun getRandomWord() : String{
 
-        val first = wordsList.random()
-        wordsList.remove(first)
-        intentosTotales--
+        var first = "No Found"
+        if (wordsList.isNotEmpty()) {
+            first = wordsList.random()
+            wordsList.remove(first)
+            intentosTotales--
+        }
 
         return first
     }
 
     fun getWordByCoincidence(word:String, coincidences:Int) : String {
 
-        var result : String = "No Found"
+        var result = "No Found"
         val coincidenList : MutableList<String> = mutableListOf()
 
         for (wordTest in wordsList){

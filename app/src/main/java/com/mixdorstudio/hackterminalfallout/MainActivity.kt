@@ -2,6 +2,7 @@ package com.mixdorstudio.hackterminalfallout
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +11,7 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.lifecycleScope
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.mixdorstudio.hackterminalfallout.databinding.ActivityMainBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
@@ -55,7 +57,12 @@ class MainActivity : AppCompatActivity() {
 
             //Procesar primera palabra
             processWord.setText(binding.textPalabras.text.toString().uppercase())
-            binding.textPalabraPosible.text = processWord.getRandomWord()
+
+            val strWord = processWord.getRandomWord()
+            if (strWord == "No Found"){
+                dialogNoFoundWord(processWord)
+            }
+            binding.textPalabraPosible.text = strWord
         }
 
         binding.btnSiCorrecto.setOnClickListener {
@@ -75,25 +82,35 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnOkCoincidencias.setOnClickListener {
-            binding.textInferior.text = "¿Es la palabra correcta"
-            binding.btnSiCorrecto.visibility = View.VISIBLE
-            binding.btnNoCorrecta.visibility = View.VISIBLE
-            binding.layoutCoincidencias.visibility = View.GONE
-            binding.btnOkCoincidencias.visibility = View.GONE
 
-            //Procesar las coincidencias
+            if(binding.txtCoincidencias.text.toString()!=""){
 
-            if(processWord.getIntentos()>1||processWord.getListSize()==1){
-                val palabra = binding.textPalabraPosible.text.toString()
-                val coindencias = binding.txtCoincidencias.text.toString().toInt()
-                binding.textPalabraPosible.text = processWord.getWordByCoincidence(palabra, coindencias)
+                binding.textInferior.text = "¿Es la palabra correcta"
+                binding.btnSiCorrecto.visibility = View.VISIBLE
+                binding.btnNoCorrecta.visibility = View.VISIBLE
+                binding.layoutCoincidencias.visibility = View.GONE
+                binding.btnOkCoincidencias.visibility = View.GONE
+
+                //Procesar las coincidencias
+
+                if(processWord.getIntentos()>1||processWord.getListSize()==1){
+                    val palabra = binding.textPalabraPosible.text.toString()
+                    val coindencias = binding.txtCoincidencias.text.toString().toInt()
+
+                    val strWord = processWord.getWordByCoincidence(palabra, coindencias)
+                    if (strWord == "No Found"){
+                        dialogNoFoundWord(processWord)
+                    }
+
+                    binding.textPalabraPosible.text = strWord
+                }
+                else{
+                    binding.layoutAtencion.visibility = View.VISIBLE
+                    binding.layoutPruebas.visibility = View.GONE
+                }
+
+                binding.txtCoincidencias.setText("")
             }
-            else{
-                binding.layoutAtencion.visibility = View.VISIBLE
-                binding.layoutPruebas.visibility = View.GONE
-            }
-
-            binding.txtCoincidencias.setText("")
         }
 
         binding.btnPalabraEliminada.setOnClickListener {
@@ -101,10 +118,15 @@ class MainActivity : AppCompatActivity() {
             binding.btnOkEliminada.visibility = View.VISIBLE
             binding.layoutPalabraEliminada.visibility = View.VISIBLE
 
+            binding.PalabraEliminada.setText("Palabra Eliminada")
+
             //Eliminar palabra
             var listaEliminatoria : MutableList<String> = mutableListOf()
-            listaEliminatoria = processWord.getMutableList()
             listaEliminatoria.add("Ninguna")
+            for(i in processWord.getMutableList()){
+                listaEliminatoria.add(i)
+            }
+
             val adapter = ArrayAdapter(this, R.layout.list_item, listaEliminatoria)
             binding.PalabraEliminada.setAdapter(adapter)
 
@@ -123,9 +145,13 @@ class MainActivity : AppCompatActivity() {
             binding.layoutPalabraEliminada.visibility = View.GONE
 
             if(processWord.getIntentos()>1||processWord.getListSize()<=1){
-                val palabra = binding.textPalabraPosible.text.toString()
-                val coindencias = binding.txtCoincidencias.text.toString().toInt()
-                binding.textPalabraPosible.text = processWord.getWordByCoincidence(palabra, coindencias)
+                binding.layoutAtencion.visibility = View.GONE
+                binding.layoutPruebas.visibility = View.VISIBLE
+                val strWord = processWord.getRandomWord()
+                if (strWord == "No Found"){
+                    dialogNoFoundWord(processWord)
+                }
+                binding.textPalabraPosible.text = strWord
             }
             else{
                 binding.layoutAtencion.visibility = View.VISIBLE
@@ -137,7 +163,11 @@ class MainActivity : AppCompatActivity() {
              binding.layoutAtencion.visibility = View.GONE
              binding.layoutPruebas.visibility = View.VISIBLE
              processWord.setIntentos(4)
-             binding.textPalabraPosible.text = processWord.getRandomWord()
+             val strWord = processWord.getRandomWord()
+             if (strWord == "No Found"){
+                 dialogNoFoundWord(processWord)
+             }
+             binding.textPalabraPosible.text = strWord
          }
 
         binding.btnThemeAzul.setOnClickListener {
@@ -180,6 +210,24 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+    }
+
+    private fun dialogNoFoundWord(processWord : ProcessWords) {
+        processWord.setIntentos(4)
+        binding.textPalabras.isEnabled = true
+        binding.layoutPruebas.visibility = View.GONE
+        binding.txtCoincidencias.setText("")
+
+        MaterialAlertDialogBuilder(this)
+            .setTitle("Error")
+            .setMessage("No se ha encontrado ninguna palabra que cumpla con las condiciones")
+            .setPositiveButton("Cambiar Palabras"){ _, _ ->
+
+            }
+            .setNegativeButton("Limpiar Palabras"){ _, _ ->
+                binding.textPalabras.setText("")
+            }
+            .show()
     }
 
     private fun resetActivity() {
