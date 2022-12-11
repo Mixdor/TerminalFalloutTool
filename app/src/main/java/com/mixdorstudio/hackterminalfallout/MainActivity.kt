@@ -2,7 +2,6 @@ package com.mixdorstudio.hackterminalfallout
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
@@ -32,7 +31,7 @@ class MainActivity : AppCompatActivity() {
             // You should also handle IOExceptions here.
         }
 
-        var themeID = 0
+        var themeID: Int
 
         runBlocking {
             themeID = getValues().theme
@@ -121,7 +120,7 @@ class MainActivity : AppCompatActivity() {
             binding.PalabraEliminada.setText("Palabra Eliminada")
 
             //Eliminar palabra
-            var listaEliminatoria : MutableList<String> = mutableListOf()
+            val listaEliminatoria : MutableList<String> = mutableListOf()
             listaEliminatoria.add("Ninguna")
             for(i in processWord.getMutableList()){
                 listaEliminatoria.add(i)
