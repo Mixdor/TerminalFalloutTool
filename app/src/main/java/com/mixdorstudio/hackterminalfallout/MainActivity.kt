@@ -24,6 +24,62 @@ private val Context.dataStore by preferencesDataStore(name = "PREFERENCES_APP")
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private val processWord = ProcessWords()
+
+
+    override fun onSaveInstanceState(savedInstanceState: Bundle) {
+        super.onSaveInstanceState(savedInstanceState)
+
+        savedInstanceState.putString("lvlCiencia",binding.lvlCiencia.text.toString())
+        savedInstanceState.putString("lvlHacker",binding.lvlHacker.text.toString())
+        savedInstanceState.putInt("viewLayoutRequisitos", binding.layoutRequisitos.visibility)
+        savedInstanceState.putInt("viewTxtFallout4", binding.txtFallout4.visibility)
+        savedInstanceState.putInt("viewLvlHacker", binding.lvlHacker.visibility)
+
+        savedInstanceState.putInt("viewLayoutPruebas", binding.layoutPruebas.visibility)
+        savedInstanceState.putBoolean("txtEnablePalabras",binding.textPalabras.isEnabled)
+        savedInstanceState.putString("strPalabraPosible",binding.textPalabraPosible.text.toString())
+
+        savedInstanceState.putInt("viewBtnSiCorrecto", binding.btnSiCorrecto.visibility)
+        savedInstanceState.putInt("viewBtnNoCorrecta",binding.btnNoCorrecta.visibility)
+        savedInstanceState.putInt("viewLayoutCoincidencias",binding.layoutCoincidencias.visibility)
+        savedInstanceState.putInt("viewBtnOkCoincidencias",binding.btnOkCoincidencias.visibility)
+
+        savedInstanceState.putInt("viewLayoutAtencion", binding.layoutAtencion.visibility)
+        savedInstanceState.putInt("viewLayoutPalabraEliminada",binding.layoutPalabraEliminada.visibility)
+        savedInstanceState.putInt("viewTextQuestionWord",binding.textQuestionWord.visibility)
+        savedInstanceState.putInt("viewBtnOkEliminada",binding.btnOkEliminada.visibility)
+
+        savedInstanceState.putString("wordList",processWord.getText())
+        savedInstanceState.putInt("intentos",processWord.getIntentos())
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+
+        binding.lvlCiencia.text = savedInstanceState.getString("lvlCiencia","")
+        binding.lvlHacker.text = savedInstanceState.getString("lvlHacker","")
+        binding.layoutRequisitos.visibility = savedInstanceState.getInt("viewLayoutRequisitos",8)
+        binding.txtFallout4.visibility = savedInstanceState.getInt("viewTxtFallout4",8)
+        binding.lvlHacker.visibility = savedInstanceState.getInt("viewLvlHacker",8)
+
+        binding.layoutPruebas.visibility = savedInstanceState.getInt("viewLayoutPruebas",8)
+        binding.textPalabras.isEnabled = savedInstanceState.getBoolean("txtEnablePalabras",true)
+        binding.textPalabraPosible.text = savedInstanceState.getString("strPalabraPosible","No Found")
+
+        binding.btnSiCorrecto.visibility = savedInstanceState.getInt("viewBtnSiCorrecto",8)
+        binding.btnNoCorrecta.visibility = savedInstanceState.getInt("viewBtnNoCorrecta",8)
+        binding.layoutCoincidencias.visibility = savedInstanceState.getInt("viewLayoutCoincidencias",8)
+        binding.btnOkCoincidencias.visibility = savedInstanceState.getInt("viewBtnOkCoincidencias",8)
+
+        binding.layoutAtencion.visibility = savedInstanceState.getInt("viewLayoutAtencion",8)
+        binding.layoutPalabraEliminada.visibility = savedInstanceState.getInt("viewLayoutPalabraEliminada",8)
+        binding.textQuestionWord.visibility = savedInstanceState.getInt("viewTextQuestionWord",8)
+        binding.btnOkEliminada.visibility = savedInstanceState.getInt("viewBtnOkEliminada",8)
+
+        savedInstanceState.getString("wordList")?.let { processWord.setText(it) }
+        processWord.setIntentos(savedInstanceState.getInt("intentos"))
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         lifecycleScope.launch {
@@ -37,6 +93,7 @@ class MainActivity : AppCompatActivity() {
             themeID = getValues().theme
             setTheme(themeID)
         }
+
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -47,8 +104,6 @@ class MainActivity : AppCompatActivity() {
             R.style.Theme_HackTerminalFallout_naranja -> binding.btnThemeNaranja.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.bom_naranja_on))
             R.style.Theme_HackTerminalFallout_morado -> binding.btnThemeMorado.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.bom_morado_on))
         }
-
-        val processWord = ProcessWords()
 
         binding.btnDesbloq.setOnClickListener {
             binding.layoutPruebas.visibility = View.VISIBLE
@@ -174,7 +229,7 @@ class MainActivity : AppCompatActivity() {
             lifecycleScope.launch(Dispatchers.IO) {
                 saveValues(R.style.Theme_HackTerminalFallout_azul)
                 withContext(Dispatchers.Main){
-                    resetActivity()
+                    recreate()
                 }
             }
         }
@@ -184,7 +239,7 @@ class MainActivity : AppCompatActivity() {
             lifecycleScope.launch(Dispatchers.IO) {
                 saveValues(R.style.Theme_HackTerminalFallout_morado)
                 withContext(Dispatchers.Main){
-                    resetActivity()
+                    recreate()
                 }
             }
         }
@@ -194,7 +249,7 @@ class MainActivity : AppCompatActivity() {
             lifecycleScope.launch(Dispatchers.IO) {
                 saveValues(R.style.Theme_HackTerminalFallout_naranja)
                 withContext(Dispatchers.Main){
-                    resetActivity()
+                    recreate()
                 }
             }
         }
@@ -204,7 +259,7 @@ class MainActivity : AppCompatActivity() {
             lifecycleScope.launch(Dispatchers.IO) {
                 saveValues(R.style.Theme_HackTerminalFallout_verde)
                 withContext(Dispatchers.Main){
-                    resetActivity()
+                    recreate()
                 }
             }
         }
@@ -229,12 +284,6 @@ class MainActivity : AppCompatActivity() {
             .show()
     }
 
-    private fun resetActivity() {
-        val intent = this.intent
-        this.finish()
-        startActivity(intent)
-    }
-
     override fun onResume() {
         super.onResume()
 
@@ -244,49 +293,50 @@ class MainActivity : AppCompatActivity() {
             "Medio / Experto",
             "Difícil / Maestro",
             "Muy difícil")
+
         val adapter = ArrayAdapter(this, R.layout.list_item, items)
         binding.autoCompleteDificultad.setAdapter(adapter)
 
-        binding.autoCompleteDificultad.setOnItemClickListener { parent, view, position, id ->
+        binding.autoCompleteDificultad.setOnItemClickListener { _, _, position, _ ->
 
+            textDifLayout()
             when(position){
-                0 -> {
-                    binding.layoutRequisitos.visibility = View.VISIBLE
-                    binding.txtFallout4.visibility = View.VISIBLE
-                    binding.lvlHacker.visibility = View.VISIBLE
-                    binding.lvlCiencia.text = "Ciencia 15"
-                    binding.lvlHacker.text = "Extra Hacker 0"
-                }
-                1 -> {
-                    binding.layoutRequisitos.visibility = View.VISIBLE
-                    binding.txtFallout4.visibility = View.VISIBLE
-                    binding.lvlHacker.visibility = View.VISIBLE
-                    binding.lvlCiencia.text = "Ciencia 25"
-                    binding.lvlHacker.text = "Extra Hacker 1"
-                }
-                2 -> {
-                    binding.layoutRequisitos.visibility = View.VISIBLE
-                    binding.txtFallout4.visibility = View.VISIBLE
-                    binding.lvlHacker.visibility = View.VISIBLE
-                    binding.lvlCiencia.text = "Ciencia 50"
-                    binding.lvlHacker.text = "Extra Hacker 2"
-                }
-                3 -> {
-                    binding.layoutRequisitos.visibility = View.VISIBLE
-                    binding.txtFallout4.visibility = View.VISIBLE
-                    binding.lvlHacker.visibility = View.VISIBLE
-                    binding.lvlCiencia.text = "Ciencia 75"
-                    binding.lvlHacker.text = "Extra Hacker 3"
-                }
-                4 -> {
-                    binding.layoutRequisitos.visibility = View.VISIBLE
-                    binding.lvlCiencia.text = "Ciencia 100"
-                    binding.lvlHacker.visibility = View.GONE
-                    binding.txtFallout4.visibility = View.GONE
-                }
+                0 -> textDifNivel1()
+                1 -> textDifNivel2()
+                2 -> textDifNivel3()
+                3 -> textDifNivel4()
+                4 -> textDifNivel5()
             }
         }
+    }
 
+    private fun textDifLayout(){
+        binding.layoutRequisitos.visibility = View.VISIBLE
+        binding.txtFallout4.visibility = View.VISIBLE
+        binding.lvlHacker.visibility = View.VISIBLE
+    }
+
+    private fun textDifNivel1(){
+        binding.lvlCiencia.text = "Ciencia 15"
+        binding.lvlHacker.text = "Extra Hacker 0"
+    }
+    private fun textDifNivel2(){
+        binding.lvlCiencia.text = "Ciencia 25"
+        binding.lvlHacker.text = "Extra Hacker 1"
+    }
+    private fun textDifNivel3(){
+        binding.lvlCiencia.text = "Ciencia 50"
+        binding.lvlHacker.text = "Extra Hacker 2"
+    }
+    private fun textDifNivel4(){
+        binding.lvlCiencia.text = "Ciencia 75"
+        binding.lvlHacker.text = "Extra Hacker 3"
+    }
+    private fun textDifNivel5(){
+        binding.layoutRequisitos.visibility = View.VISIBLE
+        binding.lvlCiencia.text = "Ciencia 100"
+        binding.lvlHacker.visibility = View.GONE
+        binding.txtFallout4.visibility = View.GONE
     }
 
     private suspend fun saveValues(refTheme:Int){

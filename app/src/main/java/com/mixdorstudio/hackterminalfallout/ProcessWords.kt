@@ -2,11 +2,20 @@ package com.mixdorstudio.hackterminalfallout
 
 class ProcessWords() {
 
-    private lateinit var wordsList : MutableList<String>
+    private var wordsList : MutableList<String> = mutableListOf()
     private var intentosTotales = 4
 
     fun setText(texto:String){
         wordsList = texto.split(Regex("\\s")).toMutableList()
+        wordsList.remove("")
+    }
+
+    fun getText():String{
+        var strList = ""
+        for(word in wordsList){
+            strList += "$word "
+        }
+        return strList
     }
 
     fun getRandomWord() : String{
