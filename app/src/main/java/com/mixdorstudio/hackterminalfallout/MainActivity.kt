@@ -132,14 +132,14 @@ class MainActivity : AppCompatActivity() {
             binding.btnNoCorrecta.visibility = View.GONE
             binding.layoutCoincidencias.visibility = View.VISIBLE
             binding.btnOkCoincidencias.visibility = View.VISIBLE
-            binding.textInferior.text = "¿Cuantas coincidencias encontradas?"
+            binding.textInferior.text = getString(R.string.howMatches)
         }
 
         binding.btnOkCoincidencias.setOnClickListener {
 
             if(binding.txtCoincidencias.text.toString()!=""){
 
-                binding.textInferior.text = "¿Es la palabra correcta"
+                binding.textInferior.text = getString(R.string.IsCorrectWord)
                 binding.btnSiCorrecto.visibility = View.VISIBLE
                 binding.btnNoCorrecta.visibility = View.VISIBLE
                 binding.layoutCoincidencias.visibility = View.GONE
@@ -172,7 +172,7 @@ class MainActivity : AppCompatActivity() {
             binding.btnOkEliminada.visibility = View.VISIBLE
             binding.layoutPalabraEliminada.visibility = View.VISIBLE
 
-            binding.PalabraEliminada.setText("Palabra Eliminada")
+            binding.PalabraEliminada.setText(getString(R.string.wordDelete))
 
             //Eliminar palabra
             val listaEliminatoria : MutableList<String> = mutableListOf()
@@ -183,10 +183,6 @@ class MainActivity : AppCompatActivity() {
 
             val adapter = ArrayAdapter(this, R.layout.list_item, listaEliminatoria)
             binding.PalabraEliminada.setAdapter(adapter)
-
-        }
-
-        binding.PalabraEliminada.setOnItemClickListener { parent, view, position, id ->
 
         }
 
@@ -288,11 +284,11 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
 
         val items = listOf(
-            "Muy Facil / Principiante",
-            "Facil / Avanzado",
-            "Medio / Experto",
-            "Difícil / Maestro",
-            "Muy difícil")
+            getString(R.string.dificultad1),
+            getString(R.string.dificultad2),
+            getString(R.string.dificultad3),
+            getString(R.string.dificultad4),
+            getString(R.string.dificultad5))
 
         val adapter = ArrayAdapter(this, R.layout.list_item, items)
         binding.autoCompleteDificultad.setAdapter(adapter)
@@ -317,24 +313,24 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun textDifNivel1(){
-        binding.lvlCiencia.text = "Ciencia 15"
-        binding.lvlHacker.text = "Extra Hacker 0"
+        binding.lvlCiencia.text = getString(R.string.lvlCiencia1)
+        binding.lvlHacker.text = getString(R.string.lvlHacker1)
     }
     private fun textDifNivel2(){
-        binding.lvlCiencia.text = "Ciencia 25"
-        binding.lvlHacker.text = "Extra Hacker 1"
+        binding.lvlCiencia.text = getString(R.string.lvlCiencia2)
+        binding.lvlHacker.text = getString(R.string.lvlHacker2)
     }
     private fun textDifNivel3(){
-        binding.lvlCiencia.text = "Ciencia 50"
-        binding.lvlHacker.text = "Extra Hacker 2"
+        binding.lvlCiencia.text = getString(R.string.lvlCiencia3)
+        binding.lvlHacker.text = getString(R.string.lvlHacker3)
     }
     private fun textDifNivel4(){
-        binding.lvlCiencia.text = "Ciencia 75"
-        binding.lvlHacker.text = "Extra Hacker 3"
+        binding.lvlCiencia.text = getString(R.string.lvlCiencia4)
+        binding.lvlHacker.text = getString(R.string.lvlHacker4)
     }
     private fun textDifNivel5(){
         binding.layoutRequisitos.visibility = View.VISIBLE
-        binding.lvlCiencia.text = "Ciencia 100"
+        binding.lvlCiencia.text = getString(R.string.lvlCiencia4)
         binding.lvlHacker.visibility = View.GONE
         binding.txtFallout4.visibility = View.GONE
     }

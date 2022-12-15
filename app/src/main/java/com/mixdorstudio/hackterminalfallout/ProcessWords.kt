@@ -1,6 +1,6 @@
 package com.mixdorstudio.hackterminalfallout
 
-class ProcessWords() {
+class ProcessWords {
 
     private var wordsList : MutableList<String> = mutableListOf()
     private var intentosTotales = 4

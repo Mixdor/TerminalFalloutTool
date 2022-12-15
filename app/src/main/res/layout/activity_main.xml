@@ -35,7 +35,7 @@
                     android:fontFamily="@font/racing_sans_one"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
-                    android:text="Terminal Fallout Tool"
+                    android:text="@string/app_name"
                     android:textAlignment="center"
                     android:textColor="?attr/colorPrimary"
                     android:textSize="34sp"
@@ -60,7 +60,7 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
                         android:fontFamily="@font/orbitron_bold"
-                        android:text="Palabras"
+                        android:text="@string/words"
                         android:textAllCaps="false"
                         android:textColor="?attr/colorPrimary"
                         android:textSize="16sp"
@@ -96,7 +96,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
                         android:fontFamily="@font/orbitron_bold"
-                        android:text="Desbloquear"
+                        android:text="@string/unlock"
                         android:textColor="@color/black"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -121,12 +121,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/ibm_plex_mono"
+
                         android:inputType="none"
                         android:paddingVertical="16dp"
-                        android:text="Dificultad"
-
+                        android:text="@string/difficulty"
                         android:textColor="?attr/colorPrimary"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        tools:ignore="TextContrastCheck" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -146,7 +147,7 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
                         android:fontFamily="@font/ibm_plex_mono"
-                        android:text="Fallout 4"
+                        android:text="@string/Fallout4"
                         android:textColor="?attr/colorPrimary"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/txtFalloutNV" />
@@ -158,7 +159,7 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="8dp"
                         android:fontFamily="@font/ibm_plex_mono"
-                        android:text="Fallout New Vegas"
+                        android:text="@string/FalloutNV"
                         android:textColor="?attr/colorPrimary"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/txtFallout3" />
@@ -170,7 +171,7 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
                         android:fontFamily="@font/ibm_plex_mono"
-                        android:text="Fallout 3"
+                        android:text="@string/Fallout3"
                         android:textColor="?attr/colorPrimary"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -181,7 +182,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
                         android:fontFamily="@font/ibm_plex_mono"
-                        android:text="Extra Hacker 0"
+                        android:text="@string/lvlHacker1"
                         android:textAlignment="viewEnd"
                         android:textColor="?attr/colorPrimary"
                         app:layout_constraintBottom_toBottomOf="@+id/txtFallout4"
@@ -195,7 +196,7 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
                         android:fontFamily="@font/orbitron_bold"
-                        android:text="Nivel Requerido"
+                        android:text="@string/requiredLvl"
                         android:textAllCaps="false"
                         android:textColor="?attr/colorPrimary"
                         android:textSize="16sp"
@@ -209,7 +210,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
                         android:fontFamily="@font/ibm_plex_mono"
-                        android:text="Ciencia 15"
+                        android:text="@string/lvlCiencia1"
                         android:textAlignment="viewEnd"
                         android:textColor="?attr/colorPrimary"
                         app:layout_constraintBottom_toBottomOf="@+id/txtFalloutNV"
@@ -233,7 +234,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="32dp"
                         android:fontFamily="@font/orbitron_bold"
-                        android:text="Escoge"
+                        android:text="@string/choose"
                         android:textColor="?attr/colorPrimary"
                         android:textSize="16sp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -248,7 +249,7 @@
                         android:fontFamily="@font/ibm_plex_mono"
                         android:paddingStart="8dp"
                         android:paddingEnd="8dp"
-                        android:text="Fallout"
+                        android:text="@string/fallout"
                         android:textColor="?attr/colorPrimary"
                         android:textSize="20sp"
                         android:textStyle="italic"
@@ -265,7 +266,7 @@
                         android:layout_marginTop="24dp"
                         android:layout_marginEnd="16dp"
                         android:fontFamily="@font/orbitron_bold"
-                        android:text="Si"
+                        android:text="@string/yes"
                         android:textColor="@color/black"
                         app:layout_constraintEnd_toStartOf="@+id/btnNoCorrecta"
                         app:layout_constraintHorizontal_bias="0.5"
@@ -289,7 +290,7 @@
                         android:layout_marginTop="24dp"
                         android:layout_marginEnd="16dp"
                         android:fontFamily="@font/orbitron_bold"
-                        android:text="No"
+                        android:text="@string/no"
                         app:layout_constraintEnd_toStartOf="@+id/layoutCoincidencias"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toEndOf="@+id/btnSiCorrecto"
@@ -302,7 +303,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="24dp"
                         android:fontFamily="@font/ibm_plex_mono"
-                        android:text="Es la palabra correcta?"
+                        android:text="@string/IsCorrectWord"
                         android:textColor="?attr/colorPrimary"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -327,10 +328,11 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/ibm_plex_mono"
-                            android:hint="Coincidencias"
+                            android:hint="@string/coincidences"
                             android:inputType="number"
                             android:textColor="?attr/colorPrimary"
-                            android:textColorHint="?attr/colorPrimary" />
+                            android:textColorHint="?attr/colorPrimary"
+                            tools:ignore="TouchTargetSizeCheck" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <Button
@@ -341,7 +343,7 @@
                         android:layout_marginTop="6dp"
                         android:layout_marginEnd="16dp"
                         android:fontFamily="@font/orbitron_bold"
-                        android:text="OK"
+                        android:text="@string/ok"
                         android:textColor="@color/black"
                         android:visibility="gone"
                         app:layout_constraintBottom_toBottomOf="@+id/layoutCoincidencias"
@@ -349,6 +351,7 @@
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toEndOf="@+id/layoutCoincidencias"
                         app:layout_constraintTop_toTopOf="@+id/layoutCoincidencias"
+                        tools:ignore="DuplicateSpeakableTextCheck"
                         tools:visibility="visible" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -368,7 +371,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="32dp"
                         android:fontFamily="@font/orbitron_bold"
-                        android:text="Atención"
+                        android:text="@string/attention"
                         android:textColor="?attr/colorPrimary"
                         android:textSize="16sp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -381,7 +384,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="24dp"
                         android:fontFamily="@font/ibm_plex_mono"
-                        android:text="Solo te queda un intento"
+                        android:text="@string/oneTry"
                         android:textColor="?attr/colorPrimary"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -393,7 +396,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
                         android:fontFamily="@font/ibm_plex_mono"
-                        android:text="Busca los caracteres de parentesis"
+                        android:text="@string/findCharacters"
                         android:textColor="?attr/colorPrimary"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -406,12 +409,13 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
                         android:fontFamily="@font/orbitron_bold"
-                        android:text="Palabra\nEliminada"
+                        android:text="@string/wordDelete"
                         android:textSize="14sp"
                         app:layout_constraintEnd_toStartOf="@+id/btnIntentRestart"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+                        app:layout_constraintTop_toBottomOf="@+id/textView4"
+                        tools:ignore="DuplicateSpeakableTextCheck" />
 
                     <Button
                         android:id="@+id/btnIntentRestart"
@@ -420,7 +424,7 @@
                         android:layout_marginTop="16dp"
                         android:layout_marginEnd="16dp"
                         android:fontFamily="@font/orbitron_bold"
-                        android:text="Intentos\nRestablecidos"
+                        android:text="@string/attemptsReset"
                         android:textSize="14sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
@@ -448,7 +452,7 @@
                             android:fontFamily="@font/ibm_plex_mono"
                             android:inputType="none"
                             android:paddingVertical="16dp"
-                            android:text="Palabra Eliminada"
+                            android:text="@string/wordDelete"
                             android:textColor="?attr/colorPrimary"
                             android:textSize="14sp" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -458,7 +462,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="24dp"
-                        android:text="¿Cual ha sido la palabra eliminada?"
+                        android:text="@string/whatDeletedWord"
                         android:textColor="?attr/colorPrimary"
                         android:visibility="gone"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -471,7 +475,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:text="OK"
+                        android:text="@string/ok"
                         android:visibility="gone"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -498,9 +502,11 @@
             android:layout_width="0dp"
             android:layout_height="32dp"
             android:background="#818181"
+            android:contentDescription="@string/backgroundLight"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="ImageContrastCheck" />
 
         <ImageButton
             android:id="@+id/btnThemeNaranja"
@@ -508,11 +514,13 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:background="@null"
+            android:contentDescription="@string/btnDescrOrange"
             app:layout_constraintEnd_toStartOf="@+id/btnThemeMorado"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/btnThemeAzul"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/bom_naranja_off" />
+            app:srcCompat="@drawable/bom_naranja_off"
+            tools:ignore="ImageContrastCheck" />
 
         <ImageButton
             android:id="@+id/btnThemeVerde"
@@ -520,6 +528,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:background="@null"
+            android:contentDescription="@string/btnDescrGreen"
             app:layout_constraintEnd_toStartOf="@+id/btnThemeAzul"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -532,11 +541,13 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:background="@null"
+            android:contentDescription="@string/btnDescrBlue"
             app:layout_constraintEnd_toStartOf="@+id/btnThemeNaranja"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/btnThemeVerde"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/bom_azul_off" />
+            app:srcCompat="@drawable/bom_azul_off"
+            tools:ignore="ImageContrastCheck" />
 
         <ImageButton
             android:id="@+id/btnThemeMorado"
@@ -544,6 +555,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:background="@null"
+            android:contentDescription="@string/btnDescrPurple"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/btnThemeNaranja"

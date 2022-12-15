@@ -1,3 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">hackTerminalFallout</string>
+
+    <string name="app_name" translatable="false">Terminal Fallout Tool</string>
+
+    <string name="fallout" translatable="false">Fallout</string>
+
+    <string name="dificultad1">Very easy / Novice</string>
+    <string name="dificultad2">Easy / Advanced</string>
+    <string name="dificultad3">Normal / Expert</string>
+    <string name="dificultad4">Hard / Master</string>
+    <string name="dificultad5">Very hard</string>
+
+    <string name="lvlCiencia1">Science 15</string>
+    <string name="lvlCiencia2">Science 25</string>
+    <string name="lvlCiencia3">Science 50</string>
+    <string name="lvlCiencia4">Science 75</string>
+    <string name="lvlCiencia5">Science 100</string>
+
+    <string name="lvlHacker1" translatable="false">Extra Hacker 0</string>
+    <string name="lvlHacker2" translatable="false">Extra Hacker 1</string>
+    <string name="lvlHacker3" translatable="false">Extra Hacker 2</string>
+    <string name="lvlHacker4" translatable="false">Extra Hacker 3</string>
+
+
+    <string name="wordDelete">Deleted word</string>
+    <string name="howMatches">How many matches found?</string>
+    <string name="IsCorrectWord">Is it the correct word?</string>
+    
+    
+    <string name="difficulty">Difficulty</string>
+    <string name="requiredLvl">Required level</string>
+
+    <string name="Fallout3" translatable="false">Fallout 3</string>
+    <string name="Fallout4" translatable="false">Fallout 4</string>
+    <string name="FalloutNV" translatable="false">Fallout New Vegas</string>
+
+    <string name="words">Words</string>
+    <string name="unlock">Unlock</string>
+    <string name="choose">Choose</string>
+
+    <string name="yes">Yes</string>
+    <string name="no" translatable="false">No</string>
+    <string name="ok">OK</string>
+    <string name="coincidences">Coincidences</string>
+
+    <string name="attention">Attention</string>
+    <string name="oneTry">You only have one try left</string>
+    <string name="findCharacters">Find the characters in parentheses</string>
+    <string name="attemptsReset">Attempts reset</string>
+    <string name="whatDeletedWord">What has been the deleted word?</string>
+
+    <string name="backgroundLight">Lights background</string>
+    <string name="btnDescrGreen">Switch to green theme</string>
+    <string name="btnDescrBlue">Switch to blue theme</string>
+    <string name="btnDescrOrange">Switch to orange theme</string>
+    <string name="btnDescrPurple">Switch to purple theme</string>
+
 </resources>

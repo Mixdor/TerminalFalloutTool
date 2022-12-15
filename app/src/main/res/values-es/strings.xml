@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="dificultad1">Muy Fácil / Principiante</string>
+    <string name="dificultad2">Fácil / Avanzado</string>
+    <string name="dificultad3">Medio / Experto</string>
+    <string name="dificultad4">Difícil / Maestro</string>
+    <string name="dificultad5">Muy difícil</string>
+
+    <string name="lvlCiencia1">Ciencia 15</string>
+    <string name="lvlCiencia2">Ciencia 25</string>
+    <string name="lvlCiencia3">Ciencia 50</string>
+    <string name="lvlCiencia4">Ciencia 75</string>
+    <string name="lvlCiencia5">Ciencia 100</string>
+
+
+    <string name="wordDelete">Palabra eliminada</string>
+    <string name="howMatches">¿Cuantas coincidencias encontradas?</string>
+    <string name="IsCorrectWord">¿Es la palabra correcta?</string>
+
+
+    <string name="difficulty">Dificultad</string>
+    <string name="requiredLvl">Nivel Requerido</string>
+
+    <string name="words">Palabras</string>
+    <string name="unlock">Desbloquear</string>
+    <string name="choose">Escoge</string>
+
+    <string name="yes">Si</string>
+    <string name="ok">Hecho</string>
+    <string name="coincidences">Coincidencias</string>
+
+    <string name="attention">Atención</string>
+    <string name="oneTry">Solo te queda un intento</string>
+    <string name="findCharacters">Busca los caracteres de paréntesis</string>
+    <string name="attemptsReset">Intentos restablecidos</string>
+    <string name="whatDeletedWord">¿Cuál ha sido la palabra eliminada?</string>
+
+    <string name="backgroundLight">Fondo de las luces</string>
+    <string name="btnDescrGreen">Cambiar al tema verde</string>
+    <string name="btnDescrBlue">Cambiar al tema azul</string>
+    <string name="btnDescrOrange">Cambiar al tema naranja</string>
+    <string name="btnDescrPurple">Cambiar al tema morado</string>
+
+</resources>
