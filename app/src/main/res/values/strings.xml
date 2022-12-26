@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name" translatable="false">Terminal Fallout Tool</string>
+    <string name="app_name" translatable="false">Terminal Unlock</string>
 
-    <string name="fallout" translatable="false">Fallout</string>
+    <string name="fallout" translatable="false">Word</string>
 
     <string name="dificultad1">Very easy / Novice</string>
     <string name="dificultad2">Easy / Advanced</string>
